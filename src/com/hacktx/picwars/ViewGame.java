@@ -1,15 +1,15 @@
 package com.hacktx.picwars;
 
 import java.util.ArrayList;
-import java.util.List;
-import com.parse.*;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
+import android.view.View;
 
-public class ViewGame extends Activity {
+public class ViewGame extends Activity implements OnItemClickListener {
 	ArrayList<String> entries;
 	String userid = "tester";
 	
@@ -22,9 +22,12 @@ public class ViewGame extends Activity {
 	}
 	
 	private void loadDummyList(){
-
+		entries.add("one");
+		entries.add("two");
+		entries.add("three");
 	}
 	
+	@SuppressWarnings("unused")
 	private void loadList(){
 //		//load previously existing data from parse
 //		ParseQuery<ParseObject> query = ParseQuery.getQuery("PuzzleData");
@@ -47,8 +50,15 @@ public class ViewGame extends Activity {
 	
 	private void setListData(){
 		//take loaded data and push to front end
-		ListView list = (ListView) findViewById(R.id.all_entries);
+		ListView lv = (ListView) findViewById(R.id.all_entries);
 		
-		list.setAdapter( new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, entries));
+		lv.setAdapter( new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, entries));
+		lv.setOnItemClickListener(this);
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+		System.out.println("Clicked!!!!!!!!!!!!!!!!!!");
+		
 	}
 }

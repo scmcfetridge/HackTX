@@ -4,11 +4,14 @@ import java.util.ArrayList;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
+import android.content.Intent;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class AllGames extends Activity {
+public class AllGames extends Activity implements OnItemClickListener {
 	ArrayList<String> games;
 	
 	@Override
@@ -34,5 +37,14 @@ public class AllGames extends Activity {
 		
 		//create an adapter to insert data and listen for clicks
 		lv.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, games));
+		lv.setOnItemClickListener(this);
 	}
+
+	@Override
+	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+		Intent intent = new Intent(AllGames.this, ViewGame.class);
+		startActivity(intent);
+	}
+	
+	
 }

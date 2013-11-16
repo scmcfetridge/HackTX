@@ -26,13 +26,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!-- <activity
-            android:name="com.hacktx.picwars.AllGames"
-            android:label="@string/app_name" >
+        <activity
+            android:name="com.hacktx.picwars.AllGames">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity> -->
+        </activity>
+        <activity
+            android:name="com.hacktx.picwars.ViewGame" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         
     </application>
 
