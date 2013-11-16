@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class AllGames extends Activity {
-	ArrayList<Game> games;
+	ArrayList<String> games;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,10 @@ public class AllGames extends Activity {
 	
 	private void loadListData(){
 		//load previously existing data from parse
-		games = new ArrayList<Game>();
+		games = new ArrayList<String>();
+		games.add("Tacos");
+		games.add("Ugly Face");
+		games.add("Dogs");
 	}
 
 	//take loaded data and push to front end
@@ -30,10 +33,6 @@ public class AllGames extends Activity {
 		ListView lv = (ListView) findViewById(R.id.all_games);
 		
 		//create an adapter to insert data and listen for clicks
-		lv.setAdapter(new ArrayAdapter<Game>(this, android.R.layout.simple_list_item_1, games));
-		
-		
+		lv.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, games));
 	}
-	
-
 }
