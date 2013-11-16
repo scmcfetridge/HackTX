@@ -5,6 +5,7 @@ public class Game {
 	String title;
 	ArrayList<Entry> allGames;
 	
+	//comment!
 	public Game(String title) {
 			this.title = title;
 			allGames = new ArrayList<Entry>();
