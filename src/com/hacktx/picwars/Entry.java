@@ -1,3 +1,5 @@
+package com.hacktx.picwars;
+
 /*
  * PicWars Entry Class
  * Includes:
@@ -6,8 +8,11 @@
  * 		Score
  * 		User
  */
-@ParseClassName("Entry")
+
 import java.util.*;
+
+import com.parse.ParseObject;
+import com.parse.ParseUser;
 
 
 public class Entry extends ParseObject{
@@ -31,7 +36,7 @@ public class Entry extends ParseObject{
 	}
 	
 	private double averageScore() {
-		double avg;
+		double avg = 0;
 		for(Integer n: scoreList) {
 			avg+=n;
 		}

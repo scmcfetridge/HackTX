@@ -1,4 +1,4 @@
-package com.example.picwars;
+package com.hacktx.picwars;
 import java.util.*;
 
 public class Game {
@@ -10,7 +10,7 @@ public class Game {
 			allGames = new ArrayList<Entry>();
 	}
 	
-	public void addGame(Game game){
-		allGames.add(game);
+	public void addGame(Entry entry){
+		allGames.add(entry);
 	}
 }
