@@ -22,6 +22,7 @@ public class ViewGame extends Activity implements OnItemClickListener {
 	}
 	
 	private void loadDummyList(){
+		entries = new ArrayList<String>();
 		entries.add("one");
 		entries.add("two");
 		entries.add("three");
