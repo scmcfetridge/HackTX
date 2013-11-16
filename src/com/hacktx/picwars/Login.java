@@ -1,5 +1,7 @@
 package com.hacktx.picwars;
 
+import com.parse.Parse;
+import com.parse.ParseAnalytics;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -21,6 +23,9 @@ public class Login extends Activity {
 	}
 	
 	private void parseSetup(){
+		Parse.initialize(this, "6xMmCvXeB12R6L2p9DvoYbUnHHMITaPuz0PM1Jrx", "m2Qka0510lN2c6MwFy4m1CRGAOFXb2XYRBJXzlJU");
+		
+		ParseAnalytics.trackAppOpened(getIntent());
 	}
 
 }
