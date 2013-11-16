@@ -4,16 +4,9 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
-
 import com.hacktx.fragments.LoginFragment;
 import com.parse.Parse;
 import com.parse.ParseAnalytics;
-
-<<<<<<< HEAD
-public class Login extends FragmentActivity {
-	
-	private LoginFragment mainFragment;
-=======
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -26,8 +19,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 
-public class Login extends Activity {
->>>>>>> f4a1c5d7c7c9ede21dabe63721f418b7325c077c
+public class Login extends FragmentActivity {
+
+
+private LoginFragment mainFragment;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

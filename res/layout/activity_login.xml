@@ -10,10 +10,6 @@
         android:id="@+id/authButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp" />
-=======
         android:background="@color/blue"
         android:padding="10dp"
         android:text="@string/login"
@@ -25,6 +21,5 @@
      android:layout_width="wrap_content"
      android:text="Test"
      android:onClick="test" />
->>>>>>> f4a1c5d7c7c9ede21dabe63721f418b7325c077c
 
 </LinearLayout>
