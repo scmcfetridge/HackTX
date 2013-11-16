@@ -8,13 +8,17 @@
  */
 
 import java.util.*;
+import com.parse.Parse;
+import com.parse.ParseAnalytics;
+import com.parse.ParseInstallation;
+import com.parse.PushService;
 
 public class Entry {
 	private double score;
-	private User user;
+	private ParseUser user;
 	private ArrayList<Integer> scoreList;
 	
-	public Entry(User userNew) {
+	public Entry(ParseUser userNew) {
 		score=0;
 		scoreList= new ArrayList<Integer>();
 		user= userNew;
@@ -37,7 +41,7 @@ public class Entry {
 		return avg/scoreList.size();
 	}
 	
-	public User getUser() {
+	public ParseUser getUser() {
 		return user;
 	}
 	
