@@ -1,44 +1,33 @@
 package com.hacktx.picwars;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.view.Menu;
 
+import com.hacktx.fragments.LoginFragment;
 import com.parse.Parse;
 import com.parse.ParseAnalytics;
 
-import android.os.Bundle;
-import android.app.Activity;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.pm.Signature;
-import android.util.Base64;
-import android.util.Log;
-import android.view.Menu;
-
-public class Login extends Activity {
+public class Login extends FragmentActivity {
+	
+	private LoginFragment mainFragment;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_login);
-		parseSetup();
-		
-		// Add code to print out the key hash
-	    try {
-	        PackageInfo info = getPackageManager().getPackageInfo(
-	                "com.hacktx.picwars", 
-	                PackageManager.GET_SIGNATURES);
-	        for (Signature signature : info.signatures) {
-	            MessageDigest md = MessageDigest.getInstance("SHA");
-	            md.update(signature.toByteArray());
-	            Log.d("KeyHash", "TESTING");
-	            Log.d("KeyHash", Base64.encodeToString(md.digest(), Base64.DEFAULT));
-	            }
-	    } catch (NameNotFoundException e) {
+	public void onCreate(Bundle savedInstanceState) {
+	    super.onCreate(savedInstanceState);
 
-	    } catch (NoSuchAlgorithmException e) {
-
+	    if (savedInstanceState == null) {
+	        // Add the fragment on initial activity setup
+	        mainFragment = new LoginFragment();
+	        getSupportFragmentManager()
+	        .beginTransaction()
+	        .add(android.R.id.content, mainFragment)
+	        .commit();
+	    } else {
+	        // Or set the fragment from restored state info
+	        mainFragment = (LoginFragment) getSupportFragmentManager()
+	        .findFragmentById(android.R.id.content);
 	    }
 	}
 

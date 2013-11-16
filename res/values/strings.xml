@@ -3,6 +3,7 @@
 
     <string name="app_name">PicWars</string>
     <string name="menu_settings">Settings</string>
+    <string name="app_id">687974254548321</string>
     <string name="login">Login</string>
 
 </resources>
