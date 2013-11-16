@@ -1,9 +1,19 @@
 package com.hacktx.picwars;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 import com.parse.Parse;
 import com.parse.ParseAnalytics;
+
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.pm.Signature;
+import android.util.Base64;
+import android.util.Log;
 import android.view.Menu;
 
 public class Login extends Activity {
@@ -13,6 +23,23 @@ public class Login extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 		parseSetup();
+		
+		// Add code to print out the key hash
+	    try {
+	        PackageInfo info = getPackageManager().getPackageInfo(
+	                "com.hacktx.picwars", 
+	                PackageManager.GET_SIGNATURES);
+	        for (Signature signature : info.signatures) {
+	            MessageDigest md = MessageDigest.getInstance("SHA");
+	            md.update(signature.toByteArray());
+	            Log.d("KeyHash", "TESTING");
+	            Log.d("KeyHash", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+	            }
+	    } catch (NameNotFoundException e) {
+
+	    } catch (NoSuchAlgorithmException e) {
+
+	    }
 	}
 
 	@Override
